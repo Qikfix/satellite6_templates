@@ -11,8 +11,6 @@ cat << EOF > /tmp/diskpart.cfg
 zerombr
 clearpart --all --initlabel
 
-bootloader --location=mbr --append="nofb quiet splash=quiet" --boot-drive="$os_disk"
-
 # Standard partition layout for boot disk
 part /boot --fstype="ext4" --ondisk "$os_disk" --size=1024
 part /boot/efi --fstype="efi" --ondisk "$os_disk" --size=1024
