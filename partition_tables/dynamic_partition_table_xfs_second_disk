@@ -1,0 +1,21 @@
+#Dynamic
+
+# get boot disk, assumine we are looking for a disk with 40G in size
+if [ `lsblk | grep 40G | grep disk | awk '{print $1}' | wc -l` -gt 0 ]; then
+    os_disk=$(lsblk | grep 40G | grep disk | awk '{print $1}')
+else 
+    os_disk=$(lsblk | grep disk | head -n1 | awk '{print $1}')
+fi
+
+cat << EOF > /tmp/diskpart.cfg
+zerombr
+clearpart --all --initlabel
+
+bootloader --location=mbr --append="nofb quiet splash=quiet" --boot-drive="$os_disk"
+
+# Standard partition layout for boot disk
+part /boot --fstype="ext4" --ondisk "$os_disk" --size=1024
+part /boot/efi --fstype="efi" --ondisk "$os_disk" --size=1024
+
+part / --fstype="ext4" --ondisk "$os_disk" --size=10000
+part swap --fstype="swap" --ondisk "$os_disk" --size=1024
