@@ -1,6 +1,6 @@
 #Dynamic
 
-# get boot disk, either nvme0n1 or sda
+# get boot disk, assumine we are looking for a disk with 40G in size
 if [ `lsblk | grep 40G | grep disk | awk '{print $1}' | wc -l` -gt 0 ]; then
     os_disk=$(lsblk | grep 40G | grep disk | awk '{print $1}')
 else 
