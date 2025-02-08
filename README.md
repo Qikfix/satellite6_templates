@@ -6,25 +6,26 @@ This project scripts are NOT delivered and/or released by Red Hat. This is an in
 
 ---
 
-Adding some custom partition templates, that will help when trying to customize the disk layout
+## Adding some custom partition templates, that will help when trying to customize the disk layout
 
 - [dynamic_partition_table_lvm_first_disk](partition_tables/dynamic_partition_table_lvm_first_disk)
 
-Searching by the first disk, using 20G as a reference, and setting the LVM based on the configuration on this example.
+  - Searching by the first disk, using `20G` as a reference, and setting the `LVM` based on the configuration on this example.
 
 - [dynamic_partition_table_lvm_second_disk](partition_tables/dynamic_partition_table_lvm_second_disk)
 
-Searching by the second disk, using 40G as a reference, and setting the LVM based on the configuration on this example.
+  - Searching by the second disk, using `40G` as a reference, and setting the `LVM` based on the configuration on this example.
 
 - [dynamic_partition_table_xfs_first_disk](partition_tables/dynamic_partition_table_xfs_first_disk)
 
-Searching by the first disk, using 20G as a reference, and setting the XFS based on the configuration on this example.
+  - Searching by the first disk, using `20G` as a reference, and setting the `XFS` based on the configuration on this example.
 
 - [dynamic_partition_table_xfs_second_disk](partition_tables/dynamic_partition_table_xfs_second_disk)
 
-Searching by the first disk, using 40G as a reference, and setting the XFS based on the configuration on this example.
+  - Searching by the first disk, using `40G` as a reference, and setting the `XFS` based on the configuration on this example.
 
 
+<br><br>
 Note that in those templates, I'm using lsblk basically to identify which one should be the first disk. Feel free to use it, or any tool that would be available in that specific boot moment.
-
+<br><br>
 Enjoy it!
